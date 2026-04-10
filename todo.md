@@ -1,14 +1,14 @@
 # Pistes d'Amélioration & Fonctionnalités Futures (TODO)
 
-## 📌 Ergonomie et Accessibilité
-*   **Guide de Placement des Mains :** Intégrer un ou plusieurs encarts visuels (ou une modale dédiée) illustrant la position de frappe idéale au repos (Home Row) selon le profil (AZERTY vs QWERTY).
-*   **Conseils Santé & "RSI" (Troubles musculosquelettiques) :** 
-    *   Explications des étirements poignets / avant-bras recommandés.
-    *   Rappels de posture globale au bureau.
-*   **Le Choix du Clavier selon le Profil :**
-    *   Dédié aux devs ou créatifs : Switch Linear, Tactile ou Clicky.
-    *   Claviers ergonomiques ou splittés (Alice, Corne) pour les épaules resserrées.
-    *   Prendre en compte les handicaps visuels (Keycaps à forts contrastes / Braille) ou moteurs fonctionnels (Raccourcis à une seule main).
+## 📌 ✅ Ergonomie et Accessibilité (Fait)
+*   ~~**Guide de Placement des Mains :** Intégrer un ou plusieurs encarts visuels (ou une modale dédiée) illustrant la position de frappe idéale au repos (Home Row) selon le profil (AZERTY vs QWERTY).~~
+*   ~~**Conseils Santé & "RSI" (Troubles musculosquelettiques) :**~~ 
+    *   ~~Explications des étirements poignets / avant-bras recommandés.~~
+    *   ~~Rappels de posture globale au bureau.~~
+*   ~~**Le Choix du Clavier selon le Profil :**~~
+    *   ~~Dédié aux devs ou créatifs : Switch Linear, Tactile ou Clicky.~~
+    *   ~~Claviers ergonomiques ou splittés (Alice, Corne) pour les épaules resserrées.~~
+    *   ~~Prendre en compte les handicaps visuels (Keycaps à forts contrastes / Braille) ou moteurs fonctionnels (Raccourcis à une seule main).~~
 
 ## 🎮 Gamification & Entraînement au Clavier
 *   **Module de Jeu / Défi Vitesse de Frappe (Typing Speed Game) :**

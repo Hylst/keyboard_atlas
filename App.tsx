@@ -10,7 +10,8 @@ import SpeedRun from './components/SpeedRun';
 import MacGlossary from './components/MacGlossary';
 import CommandPalette from './components/CommandPalette';
 import LegalModal from './components/LegalModal';
-import InfoModal from './components/InfoModal'; // New Import
+import InfoModal from './components/InfoModal';
+import ErgoModal from './components/ErgoModal'; // New Import
 import { useAtlas } from './hooks/useAtlas';
 import { LEARNING_PATHS } from './data/learningPaths';
 
@@ -38,7 +39,8 @@ const App: React.FC = () => {
 
   const [showMacGlossary, setShowMacGlossary] = useState(false);
   const [showLegalModal, setShowLegalModal] = useState(false);
-  const [showInfoModal, setShowInfoModal] = useState(false); // New State
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showErgoModal, setShowErgoModal] = useState(false);
   const [isCmdPaletteOpen, setIsCmdPaletteOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -84,6 +86,10 @@ const App: React.FC = () => {
           setShowInfoModal(false);
           return;
         }
+        if (showErgoModal) {
+          setShowErgoModal(false);
+          return;
+        }
         if (isCmdPaletteOpen) {
           setIsCmdPaletteOpen(false);
           return;
@@ -96,7 +102,7 @@ const App: React.FC = () => {
 
     window.addEventListener('keydown', handleGlobalKeyDown);
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
-  }, [activeCategory, activeSoftware, activePath, showFavoritesOnly, searchQuery, clearFilters, showMacGlossary, showLegalModal, showInfoModal, isCmdPaletteOpen]);
+  }, [activeCategory, activeSoftware, activePath, showFavoritesOnly, searchQuery, clearFilters, showMacGlossary, showLegalModal, showInfoModal, showErgoModal, isCmdPaletteOpen]);
 
   const handleVirtualKeyClick = (key: string) => {
     let searchTerm = key;
@@ -120,6 +126,7 @@ const App: React.FC = () => {
       {showMacGlossary && <MacGlossary onClose={() => setShowMacGlossary(false)} />}
       {showLegalModal && <LegalModal onClose={() => setShowLegalModal(false)} />}
       {showInfoModal && <InfoModal onClose={() => setShowInfoModal(false)} />}
+      {showErgoModal && <ErgoModal onClose={() => setShowErgoModal(false)} />}
       
       <CommandPalette 
         isOpen={isCmdPaletteOpen}
@@ -210,6 +217,13 @@ const App: React.FC = () => {
                 title="Glossaire Mac"
               >
                 ?
+              </button>
+              <button 
+                onClick={() => setShowErgoModal(true)}
+                className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center font-bold hover:bg-emerald-100 transition-colors"
+                title="Ergonomie & Santé"
+              >
+                🧘‍♀️
               </button>
               <button 
                 onClick={() => setShowInfoModal(true)}
