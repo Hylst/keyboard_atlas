@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": "sys-screenshot",
+    "action": "Capture d'écran partielle",
+    "keys": ["Win", "Shift", "S"],
+    "os": ["Windows"],
+    "category": "system",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "4"] }]
+  },
+  {
+    "id": "sys-lock",
+    "action": "Verrouiller la session",
+    "keys": ["Win", "L"],
+    "os": ["Windows"],
+    "category": "system",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Ctrl", "Cmd", "Q"] }]
+  },
+  {
+    "id": "sys-task-manager",
+    "action": "Gestionnaire des tâches",
+    "keys": ["Ctrl", "Shift", "Esc"],
+    "os": ["Windows"],
+    "category": "system",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Option", "Esc"] }]
+  }
+]

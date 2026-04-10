@@ -1,0 +1,21 @@
+
+[
+  {
+    "id": "nav-jump-word",
+    "action": "Sauter par mot",
+    "keys": ["Ctrl", "Left"],
+    "os": ["Windows", "Linux"],
+    "category": "navigation",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Option", "Left"] }]
+  },
+  {
+    "id": "nav-line-start",
+    "action": "Début de ligne",
+    "keys": ["Home"],
+    "os": ["Windows", "Linux"],
+    "category": "navigation",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Left"] }]
+  }
+]

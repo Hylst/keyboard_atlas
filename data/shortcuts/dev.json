@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": "dev-command-palette",
+    "action": "Palette de commandes",
+    "keys": ["Ctrl", "Shift", "P"],
+    "os": ["Windows", "Linux"],
+    "category": "dev",
+    "software": "vscode",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "P"] }]
+  },
+  {
+    "id": "dev-multi-cursor",
+    "action": "Multi-curseurs (Haut/Bas)",
+    "keys": ["Ctrl", "Alt", "Up"],
+    "os": ["Windows", "Linux"],
+    "category": "dev",
+    "software": "vscode",
+    "difficulty": "Advanced",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Option", "Up"] }]
+  },
+  {
+    "id": "dev-terminal",
+    "action": "Ouvrir Terminal intégré",
+    "keys": ["Ctrl", "`"],
+    "os": ["Windows", "Linux"],
+    "category": "dev",
+    "software": "vscode",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Ctrl", "`"] }]
+  }
+]

@@ -1,0 +1,23 @@
+
+[
+  {
+    "id": "edit-bold",
+    "action": "Mettre en gras",
+    "keys": ["Ctrl", "B"],
+    "os": ["Windows", "Linux"],
+    "category": "edition",
+    "software": "office",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "B"] }]
+  },
+  {
+    "id": "edit-comment-office",
+    "action": "Insérer un commentaire",
+    "keys": ["Ctrl", "Alt", "M"],
+    "os": ["Windows", "Linux"],
+    "category": "edition",
+    "software": "office",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Option", "M"] }]
+  }
+]

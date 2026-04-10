@@ -1,0 +1,21 @@
+
+[
+  {
+    "id": "gen-undo",
+    "action": "Annuler (Undo)",
+    "keys": ["Ctrl", "Z"],
+    "os": ["Windows", "Linux"],
+    "category": "general",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Z"] }]
+  },
+  {
+    "id": "gen-redo",
+    "action": "Rétablir (Redo)",
+    "keys": ["Ctrl", "Y"],
+    "os": ["Windows", "Linux"],
+    "category": "general",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "Z"] }]
+  }
+]

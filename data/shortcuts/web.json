@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": "web-new-tab",
+    "action": "Nouvel onglet",
+    "keys": ["Ctrl", "T"],
+    "os": ["Windows", "Linux"],
+    "category": "web",
+    "software": "chrome",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "T"] }]
+  },
+  {
+    "id": "web-reopen-tab",
+    "action": "Rouvrir onglet fermé",
+    "keys": ["Ctrl", "Shift", "T"],
+    "os": ["Windows", "Linux"],
+    "category": "web",
+    "software": "chrome",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "T"] }]
+  },
+  {
+    "id": "web-dev-tools",
+    "action": "Outils de développement",
+    "keys": ["F12"],
+    "os": ["Windows", "Linux"],
+    "category": "web",
+    "software": "chrome",
+    "difficulty": "Advanced",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Option", "I"] }]
+  }
+]
