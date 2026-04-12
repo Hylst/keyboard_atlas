@@ -12,6 +12,11 @@ export const usePreferences = () => {
     return (saved as OSType) || OSType.WINDOWS;
   });
 
+  // Onboarding Preference
+  const [hasSeenOnboarding, setHasSeenOnboarding] = useState<boolean>(() => {
+    return localStorage.getItem('has_seen_onboarding') === 'true';
+  });
+
   // Layout Preference
   const [keyboardLayout, setKeyboardLayout] = useState<LayoutType>(() => {
     const saved = localStorage.getItem('pref_layout');
@@ -74,6 +79,7 @@ export const usePreferences = () => {
   useEffect(() => { localStorage.setItem('user_progress', JSON.stringify(progress)); }, [progress]);
   useEffect(() => { localStorage.setItem('favorite_shortcuts', JSON.stringify(favoriteIds)); }, [favoriteIds]);
   useEffect(() => { localStorage.setItem('arcade_high_score', arcadeHighScore.toString()); }, [arcadeHighScore]);
+  useEffect(() => { localStorage.setItem('has_seen_onboarding', hasSeenOnboarding.toString()); }, [hasSeenOnboarding]);
 
   // Derived state for backward compatibility / UI helpers
   const masteredIds = Object.keys(progress).filter(id => progress[id].level >= 5);
@@ -202,6 +208,8 @@ export const usePreferences = () => {
     typingHighScore, updateTypingHighScore,
     resetPreferences,
     exportData,
-    importData
+    importData,
+    hasSeenOnboarding,
+    setHasSeenOnboarding
   };
 };

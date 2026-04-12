@@ -17,6 +17,7 @@ import { LEARNING_PATHS } from './data/learningPaths';
 const LegalModal = lazy(() => import('./components/LegalModal'));
 const InfoModal  = lazy(() => import('./components/InfoModal'));
 const ErgoModal  = lazy(() => import('./components/ErgoModal'));
+const Onboarding = lazy(() => import('./components/Onboarding'));
 
 const ModalFallback = () => (
   <div className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center">
@@ -46,7 +47,8 @@ const App: React.FC = () => {
     exportData, importData,
     progress, submitQuizResult, dueIds,
     arcadeHighScore, updateArcadeHighScore,
-    typingHighScore, updateTypingHighScore
+    typingHighScore, updateTypingHighScore,
+    hasSeenOnboarding, setHasSeenOnboarding
   } = useAtlas();
 
   const [showMacGlossary, setShowMacGlossary] = useState(false);
@@ -159,6 +161,11 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
+      <Suspense fallback={<ModalFallback />}>
+        {!hasSeenOnboarding && (
+          <Onboarding onComplete={() => setHasSeenOnboarding(true)} />
+        )}
+      </Suspense>
       {showMacGlossary && <MacGlossary onClose={() => setShowMacGlossary(false)} />}
       <Suspense fallback={showLegalModal ? <ModalFallback /> : null}>
         {showLegalModal && <LegalModal onClose={() => setShowLegalModal(false)} />}

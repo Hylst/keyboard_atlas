@@ -5,13 +5,14 @@ interface InfoModalProps {
   onClose: () => void;
 }
 
-type Tab = 'about' | 'creator' | 'stack' | 'privacy';
+type Tab = 'about' | 'creator' | 'stack' | 'privacy' | 'changelog';
 
 const TABS: { id: Tab; label: string; emoji: string }[] = [
   { id: 'about',   label: 'À propos',  emoji: '🎯' },
   { id: 'creator', label: 'Créateur',  emoji: '👤' },
   { id: 'stack',   label: 'Stack',     emoji: '⚙️' },
   { id: 'privacy', label: 'Vie Privée', emoji: '🔒' },
+  { id: 'changelog', label: 'Nouveautés', emoji: '📌' },
 ];
 
 const InfoModal: React.FC<InfoModalProps> = ({ onClose }) => {
@@ -240,6 +241,49 @@ const InfoModal: React.FC<InfoModalProps> = ({ onClose }) => {
 
               <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-500 leading-relaxed">
                 Pour effacer toutes vos données locales, utilisez le bouton <strong>"Réinitialiser les données"</strong> dans la barre latérale, ou videz le localStorage de votre navigateur depuis ses outils de développement.
+              </div>
+            </div>
+          )}
+
+          {/* ─── TAB: CHANGELOG ─── */}
+          {activeTab === 'changelog' && (
+            <div className="space-y-6 animate-fade-in">
+              <div className="relative pl-6 border-l-2 border-indigo-100 space-y-8">
+                {/* v1.36.0 */}
+                <div className="relative">
+                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white"></div>
+                  <h3 className="text-lg font-black text-slate-900 leading-none mb-1">
+                    v1.36.0 <span className="text-sm font-bold text-slate-400 ml-2">Focus Mode & Gamification V3</span>
+                  </h3>
+                  <div className="space-y-3 mt-4">
+                    <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-4">
+                      <h4 className="text-xs font-black text-indigo-800 uppercase tracking-widest mb-2 flex items-center gap-2">🚀 Nouvelles Fonctionnalités</h4>
+                      <ul className="text-sm text-slate-700 space-y-2 list-disc list-inside">
+                        <li><strong>Typing Speed Game :</strong> Mini-jeu "Monkeytype-like" intégré.</li>
+                        <li><strong>Export/Import JSON :</strong> Sauvegardez et restaurez vos configurations (OS, layout) et vos scores.</li>
+                        <li><strong>Dark Mode Toggle :</strong> Mode nuit supporté.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* v1.0.0 */}
+                <div className="relative">
+                  <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-slate-200 border-4 border-white"></div>
+                  <h3 className="text-lg font-black text-slate-600 leading-none mb-1">
+                    v1.0.0 <span className="text-sm font-bold text-slate-400 ml-2">Gold Release 📀</span>
+                  </h3>
+                  <div className="space-y-3 mt-4">
+                    <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                      <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside">
+                        <li><strong>Arcade Mode :</strong> Contre-la-montre de 60s.</li>
+                        <li><strong>Layout Support :</strong> AZERTY, QWERTY, DVORAK, COLEMAK.</li>
+                        <li><strong>Productivity Pack :</strong> Notion, Obsidian, Trello, Adobe Lightroom.</li>
+                        <li><strong>Mentions légales :</strong> Conformité RGPD et CGU françaises.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}
