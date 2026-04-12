@@ -22,5 +22,7 @@ La plupart des listes de raccourcis sont des tableaux statiques ennuyeux. Keyboa
 *   ✅ **Phase 5 :** Internationalisation (AZERTY/QWERTY/DVORAK/COLEMAK).
 *   ✅ **Phase 6 :** Mode Arcade (Speed Run).
 *   ✅ **Phase 7 :** Documentation, SEO & Release v1.0.
+*   ✅ **Phase 8 :** Mode Typographie (Typing Speed Game, heatmaps d'erreur).
+*   ✅ **Phase 9 :** Performance (Lazy modales), Accessibilité & Export/Import JSON.
 
 L'application est désormais complète en version 1.0.

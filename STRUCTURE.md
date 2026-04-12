@@ -16,13 +16,15 @@ Le projet suit une architecture React modulaire avec une forte séparation des p
 ├── components/             # Composants UI
 │   ├── Key.tsx             # Visualisation d'une touche unique
 │   ├── ShortcutCard.tsx    # Carte d'affichage d'un raccourci
-│   ├── VirtualKeyboard.tsx # Clavier interactif à l'écran
 │   ├── Sidebar.tsx         # Navigation, stats et filtres
 │   ├── Quiz.tsx            # Moteur de jeu SRS (Overlay)
 │   ├── SpeedRun.tsx        # Moteur de jeu Arcade (Overlay)
+│   ├── TypingGame.tsx      # Minijeu de frappe au clavier (Monkeytype-like)
 │   ├── CommandPalette.tsx  # Palette de commande (Ctrl+K)
 │   ├── MacGlossary.tsx     # Modal d'aide pour symboles Mac
 │   ├── LegalModal.tsx      # Mentions légales et CGU
+│   ├── ErgoModal.tsx       # Conseils Ergonomie & Santé
+│   ├── InfoModal.tsx       # À propos & Auteur
 │   └── Confetti.tsx        # Effets visuels de victoire
 │
 ├── hooks/                  # Hooks Personnalisés

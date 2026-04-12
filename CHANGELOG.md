@@ -3,6 +3,22 @@
 
 All notable changes to the **Keyboard Atlas** project will be documented here.
 
+## [v1.36.0] - Focus Mode & Gamification V3
+### 🚀 New Features
+*   **Typing Speed Game:** Added a Monkeytype-inspired minigame (`TypingGame.tsx`) with 3 specialized corpus modes (Prose, Code, Alien). High scores are persisted.
+*   **Export/Import JSON:** Added the ability to backup and restore `localStorage` settings, including High Scores and mastered shortcuts, from a JSON file.
+*   **Dark Mode Toggle:** Integrated class-based Dark Mode toggle within the header and configured Tailwind via CDN.
+
+### ⚖️ UX & Empty States
+*   **SRS Quick Review Button:** The progression due count badge in the Sidebar is now a direct CTA converting directly to a filtered Review Quiz session.
+*   **Smart Empty States:** Refined placeholder screens when no shortcuts are matched by filters. Added a visual "Clear Filters" interactive button.
+*   **Daily Shortcut:** Correctly seeded daily shortcut using a strict date string hash to avoid jittering on refresh.
+
+### 🛠 Optimization & Accessibility
+*   **Lazy Loading Modals:** The `ErgoModal`, `InfoModal`, and `LegalModal` are now split using `React.lazy` saving ~50kB parsed bundle footprint on initial load.
+*   **Accessibility:** Added structured `aria-label` and `focus:ring` states across modals.
+*   **SEO Automation:** Sitemap and robots.txt shipped globally in `/public`.
+
 ## [v1.0.0] - Gold Release 📀
 ### 🚀 New Features
 *   **Arcade Mode (Speed Run):** A fast-paced, 60-second time trial to test muscle memory. Includes scoring, combos, and high-score persistence.

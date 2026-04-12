@@ -13,7 +13,10 @@ export const useAtlas = () => {
     toggleMastery, submitQuizResult,
     favoriteIds, toggleFavorite,
     arcadeHighScore, updateArcadeHighScore,
-    resetPreferences
+    typingHighScore, updateTypingHighScore,
+    resetPreferences,
+    exportData,
+    importData
   } = usePreferences();
 
   // UI State
@@ -24,20 +27,30 @@ export const useAtlas = () => {
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   
   const [isQuizMode, setIsQuizMode] = useState(false);
-  const [isArcadeMode, setIsArcadeMode] = useState(false); // New Mode
+  const [isArcadeMode, setIsArcadeMode] = useState(false);
+  const [isTypingMode, setIsTypingMode] = useState(false);
   
   const [hoveredKeys, setHoveredKeys] = useState<string[] | null>(null);
 
   const toggleQuiz = () => {
     setIsQuizMode(prev => !prev);
     setIsArcadeMode(false);
+    setIsTypingMode(false);
     if (!isQuizMode) window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const toggleArcade = () => {
     setIsArcadeMode(prev => !prev);
     setIsQuizMode(false);
+    setIsTypingMode(false);
     if (!isArcadeMode) window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const toggleTyping = () => {
+    setIsTypingMode(prev => !prev);
+    setIsQuizMode(false);
+    setIsArcadeMode(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const clearFilters = () => {
@@ -135,11 +148,15 @@ export const useAtlas = () => {
     toggleMastery, submitQuizResult,
     favoriteIds, toggleFavorite,
     arcadeHighScore, updateArcadeHighScore,
+    typingHighScore, updateTypingHighScore,
     resetPreferences,
+    exportData,
+    importData,
     
     // UI Actions
     toggleQuiz,
     toggleArcade,
+    toggleTyping,
     clearFilters,
     setSearchQuery,
     setActiveCategory,
@@ -148,6 +165,7 @@ export const useAtlas = () => {
     setShowFavoritesOnly,
     setIsQuizMode,
     setIsArcadeMode,
+    setIsTypingMode,
     setHoveredKeys,
 
     // UI State
@@ -158,6 +176,7 @@ export const useAtlas = () => {
     showFavoritesOnly,
     isQuizMode,
     isArcadeMode,
+    isTypingMode,
     hoveredKeys,
     
     // Derived Data

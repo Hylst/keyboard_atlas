@@ -1,6 +1,7 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { OSType, LayoutType, UserProgress } from '../types';
+import type { TypingMode } from '../data/typing';
 
 const LEITNER_INTERVALS = [0, 1, 3, 7, 14, 30]; // Jours avant la prochaine révision
 
@@ -46,6 +47,20 @@ export const usePreferences = () => {
     const saved = localStorage.getItem('arcade_high_score');
     return saved ? parseInt(saved, 10) : 0;
   });
+
+  // Typing Game High Scores (per mode)
+  const [typingHighScore, setTypingHighScore] = useState<Record<TypingMode, number>>(() => {
+    const saved = localStorage.getItem('typing_high_score');
+    return saved ? JSON.parse(saved) : { prose: 0, code: 0, alien: 0 };
+  });
+
+  useEffect(() => {
+    localStorage.setItem('typing_high_score', JSON.stringify(typingHighScore));
+  }, [typingHighScore]);
+
+  const updateTypingHighScore = (mode: TypingMode, score: number) => {
+    setTypingHighScore(prev => ({ ...prev, [mode]: Math.max(prev[mode] || 0, score) }));
+  };
 
   // Favorites Logic
   const [favoriteIds, setFavoriteIds] = useState<string[]>(() => {
@@ -133,6 +148,50 @@ export const usePreferences = () => {
     }
   };
 
+  const exportData = () => {
+    const data = {
+      pref_os: selectedOS,
+      pref_layout: keyboardLayout,
+      user_progress: progress,
+      favorite_shortcuts: favoriteIds,
+      arcade_high_score: arcadeHighScore,
+      typing_high_score: typingHighScore,
+    };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `keyboard_atlas_backup_${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+  const importData = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target?.result as string);
+        if (data.pref_os) setSelectedOS(data.pref_os);
+        if (data.pref_layout) setKeyboardLayout(data.pref_layout);
+        if (data.user_progress) setProgress(data.user_progress);
+        if (data.favorite_shortcuts) setFavoriteIds(data.favorite_shortcuts);
+        if (data.arcade_high_score !== undefined) setArcadeHighScore(data.arcade_high_score);
+        if (data.typing_high_score) setTypingHighScore(data.typing_high_score);
+        alert("Données importées avec succès !");
+      } catch (err) {
+        alert("Erreur lors de l'importation. Le fichier est-il valide ?");
+      }
+    };
+    reader.readAsText(file);
+    // Reset file input
+    event.target.value = '';
+  };
+
   return {
     selectedOS, setSelectedOS,
     keyboardLayout, setKeyboardLayout,
@@ -140,6 +199,9 @@ export const usePreferences = () => {
     toggleMastery, submitQuizResult,
     favoriteIds, toggleFavorite,
     arcadeHighScore, updateArcadeHighScore,
-    resetPreferences
+    typingHighScore, updateTypingHighScore,
+    resetPreferences,
+    exportData,
+    importData
   };
 };

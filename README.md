@@ -10,11 +10,12 @@ Elle gamifie l'apprentissage grâce à un système de répétition espacée (SRS
 
 ## 🌟 Fonctionnalités
 
-### 🧠 Moteur d'Apprentissage
+### 🧠 Moteur d'Apprentissage & Gamification
 *   **Clavier Virtuel Interactif :** Visualise les raccourcis sur des dispositions physiques (AZERTY, QWERTY, DVORAK, COLEMAK).
 *   **Moteur de Recherche :** Recherche floue instantanée par action, touche ou logiciel.
-*   **Mode Quiz SRS :** Logique de répétition espacée pour réviser les raccourcis juste avant de les oublier.
+*   **Mode Quiz SRS :** Logique de répétition espacée pour réviser les raccourcis juste avant de les oublier (Leitner system).
 *   **Arcade Speed Run :** Un défi de 60 secondes pour tester vos réflexes et battre votre meilleur score.
+*   **Jeu de Vitesse de Frappe :** Entraînement au clavier style "Monkeytype" (Stats MPM, Précision) décliné en modes Code, Prose et Alien.
 
 ### 📚 Bibliothèque Complète
 *   **Dev :** VS Code, IntelliJ, Terminal, Git, Docker.
@@ -25,6 +26,7 @@ Elle gamifie l'apprentissage grâce à un système de répétition espacée (SRS
 ### 🔒 Confidentialité & Offline First
 *   **Zéro IA / Zéro API :** La logique est 100% déterministe et s'exécute dans le navigateur.
 *   **Stockage Local :** Votre progression (Maîtrise, Favoris, Scores) reste sur votre appareil (`localStorage`).
+*   **Import / Export :** Sauvegarde et restauration complètes de votre progression via simple fichier JSON.
 *   **PWA Ready :** Installable comme une application native.
 
 ## 🛠 Stack Technique

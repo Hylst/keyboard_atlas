@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { CATEGORIES } from './data/shortcuts';
 import { OSType, LayoutType } from './types';
 import ShortcutCard from './components/ShortcutCard';
@@ -7,13 +7,22 @@ import VirtualKeyboard from './components/VirtualKeyboard';
 import Sidebar from './components/Sidebar';
 import Quiz from './components/Quiz';
 import SpeedRun from './components/SpeedRun';
+import TypingGame from './components/TypingGame';
 import MacGlossary from './components/MacGlossary';
 import CommandPalette from './components/CommandPalette';
-import LegalModal from './components/LegalModal';
-import InfoModal from './components/InfoModal';
-import ErgoModal from './components/ErgoModal'; // New Import
 import { useAtlas } from './hooks/useAtlas';
 import { LEARNING_PATHS } from './data/learningPaths';
+
+// Lazy-loaded modals (saves ~50kB from initial bundle)
+const LegalModal = lazy(() => import('./components/LegalModal'));
+const InfoModal  = lazy(() => import('./components/InfoModal'));
+const ErgoModal  = lazy(() => import('./components/ErgoModal'));
+
+const ModalFallback = () => (
+  <div className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center">
+    <div className="w-12 h-12 rounded-full border-4 border-indigo-200 border-t-indigo-600 animate-spin" />
+  </div>
+);
 
 const App: React.FC = () => {
   const {
@@ -26,15 +35,18 @@ const App: React.FC = () => {
     showFavoritesOnly, setShowFavoritesOnly,
     isQuizMode, setIsQuizMode,
     isArcadeMode, setIsArcadeMode,
-    toggleQuiz, toggleArcade,
+    isTypingMode,
+    toggleQuiz, toggleArcade, toggleTyping,
     hoveredKeys, setHoveredKeys,
     masteredIds, favoriteIds,
     toggleMastery, toggleFavorite, clearFilters,
     filteredShortcuts, currentCategoryName, dailyShortcut,
     totalShortcutsCount,
     resetPreferences,
+    exportData, importData,
     progress, submitQuizResult, dueIds,
-    arcadeHighScore, updateArcadeHighScore
+    arcadeHighScore, updateArcadeHighScore,
+    typingHighScore, updateTypingHighScore
   } = useAtlas();
 
   const [showMacGlossary, setShowMacGlossary] = useState(false);
@@ -42,6 +54,30 @@ const App: React.FC = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showErgoModal, setShowErgoModal] = useState(false);
   const [isCmdPaletteOpen, setIsCmdPaletteOpen] = useState(false);
+  const [isLayoutPickerOpen, setIsLayoutPickerOpen] = useState(false);
+  const layoutPickerRef = React.useRef<HTMLDivElement>(null);
+
+  // Dark Mode
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('dark_mode');
+    return saved === 'true';
+  });
+  useEffect(() => {
+    localStorage.setItem('dark_mode', String(isDark));
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [isDark]);
+
+  // Close layout picker on outside click
+  React.useEffect(() => {
+    if (!isLayoutPickerOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (layoutPickerRef.current && !layoutPickerRef.current.contains(e.target as Node)) {
+        setIsLayoutPickerOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isLayoutPickerOpen]);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Global Keyboard Shortcuts for the App itself
@@ -124,9 +160,15 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
       {showMacGlossary && <MacGlossary onClose={() => setShowMacGlossary(false)} />}
-      {showLegalModal && <LegalModal onClose={() => setShowLegalModal(false)} />}
-      {showInfoModal && <InfoModal onClose={() => setShowInfoModal(false)} />}
-      {showErgoModal && <ErgoModal onClose={() => setShowErgoModal(false)} />}
+      <Suspense fallback={showLegalModal ? <ModalFallback /> : null}>
+        {showLegalModal && <LegalModal onClose={() => setShowLegalModal(false)} />}
+      </Suspense>
+      <Suspense fallback={showInfoModal ? <ModalFallback /> : null}>
+        {showInfoModal && <InfoModal onClose={() => setShowInfoModal(false)} />}
+      </Suspense>
+      <Suspense fallback={showErgoModal ? <ModalFallback /> : null}>
+        {showErgoModal && <ErgoModal onClose={() => setShowErgoModal(false)} />}
+      </Suspense>
       
       <CommandPalette 
         isOpen={isCmdPaletteOpen}
@@ -181,21 +223,31 @@ const App: React.FC = () => {
                 🖨️ {showFavoritesOnly ? 'PDF Mes Favoris' : 'PDF Cheat Sheet'}
               </button>
               
-              <div className="relative group">
-                 <button className="flex items-center gap-1 px-3 py-1.5 bg-slate-100 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-200 transition-colors">
-                    {keyboardLayout}
+              <div className="relative" ref={layoutPickerRef}>
+                 <button
+                   onClick={() => setIsLayoutPickerOpen(p => !p)}
+                   className="flex items-center gap-1 px-3 py-1.5 bg-slate-100 rounded-lg text-xs font-bold text-slate-600 hover:bg-slate-200 transition-colors select-none"
+                   aria-haspopup="listbox"
+                   aria-expanded={isLayoutPickerOpen}
+                   title="Changer de disposition de clavier"
+                 >
+                   {keyboardLayout} <span className="text-slate-400 text-[10px]">▾</span>
                  </button>
-                 <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-100 p-2 hidden group-hover:block w-32 animate-fade-in">
-                    {[LayoutType.AZERTY, LayoutType.QWERTY, LayoutType.DVORAK, LayoutType.COLEMAK].map(layout => (
+                 {isLayoutPickerOpen && (
+                   <div className="absolute top-full right-0 mt-1 bg-white rounded-xl shadow-xl border border-slate-100 p-2 z-50 w-36 animate-fade-in">
+                     {[LayoutType.AZERTY, LayoutType.QWERTY, LayoutType.DVORAK, LayoutType.COLEMAK].map(layout => (
                        <button
-                          key={layout}
-                          onClick={() => setKeyboardLayout(layout)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-colors ${keyboardLayout === layout ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50'}`}
+                         key={layout}
+                         onClick={() => { setKeyboardLayout(layout); setIsLayoutPickerOpen(false); }}
+                         className={`w-full text-left px-3 py-2 rounded-lg text-xs font-bold transition-colors ${
+                           keyboardLayout === layout ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50'
+                         }`}
                        >
-                          {layout}
+                         {layout}
                        </button>
-                    ))}
-                 </div>
+                     ))}
+                   </div>
+                 )}
               </div>
 
               <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-xl">
@@ -218,6 +270,14 @@ const App: React.FC = () => {
               >
                 ?
               </button>
+              <button
+                onClick={() => setIsDark(d => !d)}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                title={isDark ? 'Mode Clair' : 'Mode Sombre'}
+                aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
+              >
+                {isDark ? '☀️' : '🌙'}
+              </button>
               <button 
                 onClick={() => setShowErgoModal(true)}
                 className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center font-bold hover:bg-emerald-100 transition-colors"
@@ -238,7 +298,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-        {!isQuizMode && !isArcadeMode && (
+        {!isQuizMode && !isArcadeMode && !isTypingMode && (
           <section className="hidden md:block mb-12 no-print">
             <VirtualKeyboard 
               activeKeys={hoveredKeys || []} 
@@ -253,6 +313,7 @@ const App: React.FC = () => {
           
           <Sidebar 
             isQuizMode={isQuizMode}
+            isTypingMode={isTypingMode}
             activePath={activePath}
             activeSoftware={activeSoftware}
             showFavoritesOnly={showFavoritesOnly}
@@ -260,6 +321,10 @@ const App: React.FC = () => {
             masteryPercentage={totalShortcutsCount > 0 ? Math.round((masteredIds.length / totalShortcutsCount) * 100) : 0}
             onToggleQuiz={toggleQuiz}
             onToggleArcade={toggleArcade}
+            onToggleTyping={toggleTyping}
+            onReviewDueCards={() => { clearFilters(); toggleQuiz(); }}
+            onExportData={exportData}
+            onImportData={importData}
             onSelectPath={(path) => { setActivePath(path); setActiveCategory(null); setActiveSoftware(null); setShowFavoritesOnly(false); }}
             onSelectSoftware={(id) => { setActiveSoftware(id); setActiveCategory(null); setActivePath(null); setShowFavoritesOnly(false); }}
             onToggleFavorites={() => { setShowFavoritesOnly(!showFavoritesOnly); setActivePath(null); setActiveCategory(null); setActiveSoftware(null); }}
@@ -267,6 +332,7 @@ const App: React.FC = () => {
             onResetPreferences={resetPreferences}
             dueCount={dueIds.length}
             arcadeHighScore={arcadeHighScore}
+            typingHighScore={typingHighScore}
           />
 
           <div className="lg:col-span-3 order-1 lg:order-2">
@@ -285,6 +351,12 @@ const App: React.FC = () => {
                 onClose={() => setIsArcadeMode(false)}
                 highScore={arcadeHighScore}
                 onNewScore={updateArcadeHighScore}
+              />
+            ) : isTypingMode ? (
+              <TypingGame
+                onClose={() => toggleTyping()}
+                typingHighScore={typingHighScore}
+                onNewHighScore={updateTypingHighScore}
               />
             ) : (
               <>
@@ -355,11 +427,31 @@ const App: React.FC = () => {
                       />
                     ))}
                   </div>
+                ) : showFavoritesOnly ? (
+                  <div className="bg-white rounded-[3rem] border-4 border-dashed border-rose-100 py-32 text-center">
+                    <div className="text-6xl mb-6">❤️</div>
+                    <h4 className="text-xl font-black text-slate-700">Pas encore de favoris</h4>
+                    <p className="text-slate-400 mt-2 max-w-xs mx-auto">
+                      Sur chaque fiche, clique sur <span className="text-rose-500 font-bold">♡</span> pour sauvegarder tes raccourcis préférés ici.
+                    </p>
+                    <button
+                      onClick={clearFilters}
+                      className="mt-6 px-6 py-2 rounded-full bg-rose-50 text-rose-600 font-bold text-sm border border-rose-100 hover:bg-rose-100 transition-colors"
+                    >
+                      Explorer la bibliothèque →
+                    </button>
+                  </div>
                 ) : (
-                  <div className="bg-white rounded-[3rem] border-4 border-dashed border-slate-100 py-32 text-center">
+                  <div className="bg-white rounded-[3rem] border-4 border-dashed border-slate-100 py-32 text-center px-4">
                     <div className="text-6xl mb-6 opacity-20">🔎</div>
-                    <h4 className="text-xl font-black text-slate-400">Aucun résultat</h4>
-                    <p className="text-slate-400 mt-2">Essayez de cliquer sur les touches du clavier virtuel !</p>
+                    <h4 className="text-xl font-black text-slate-500">Aucun raccourci ne correspond à ces critères</h4>
+                    <p className="text-slate-400 mt-2 mb-6">Essayez de modifier vos filtres ou de cliquer sur les touches du clavier virtuel.</p>
+                    <button
+                      onClick={clearFilters}
+                      className="px-6 py-2 rounded-full bg-slate-100 text-slate-600 font-bold text-sm border border-slate-200 hover:bg-slate-200 transition-colors shadow-sm"
+                    >
+                      Réinitialiser les filtres
+                    </button>
                   </div>
                 )}
               </>
