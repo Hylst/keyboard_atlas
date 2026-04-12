@@ -1,5 +1,4 @@
-
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { CATEGORIES, SOFTWARES } from '../data/shortcuts';
 import { LEARNING_PATHS } from '../data/learningPaths';
 import { LearningPath } from '../types';
@@ -177,7 +176,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <span className="h-px flex-grow bg-slate-200"></span>
               </h3>
               <div className="grid grid-cols-2 gap-2">
-                {SOFTWARES.map(sw => (
+                {SOFTWARES.slice(0, isExpanded ? undefined : 6).map(sw => (
                   <button
                     key={sw.id}
                     onClick={() => onSelectSoftware(sw.id)}
@@ -192,6 +191,14 @@ const Sidebar: React.FC<SidebarProps> = ({
                   </button>
                 ))}
               </div>
+              {SOFTWARES.length > 6 && (
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="w-full mt-2 py-2 text-[9px] font-black uppercase text-slate-400 hover:text-indigo-600 transition-colors"
+                >
+                  {isExpanded ? 'Voir moins ↑' : `Voir tous (${SOFTWARES.length}) ↓`}
+                </button>
+              )}
             </div>
 
             {/* Stats */}

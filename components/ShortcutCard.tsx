@@ -142,7 +142,14 @@ const ShortcutCard: React.FC<ShortcutCardProps> = ({
             : 'bg-slate-50 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-100 hover:border-slate-800'}
         `}
       >
-        {isMastered ? 'Oublier' : 'Marquer comme maîtrisé'}
+        {isMastered ? (
+          <>Oublier</>
+        ) : (
+          <>
+            <span className="sm:hidden">Maîtriser</span>
+            <span className="hidden sm:inline">Marquer comme maîtrisé</span>
+          </>
+        )}
       </button>
     </article>
   );
