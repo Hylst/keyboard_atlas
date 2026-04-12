@@ -216,6 +216,16 @@ export const webShortcuts = [
     "difficulty": "Intermediate",
     "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "H"] }]
   },
+  {
+    "id": "web-ff-reader",
+    "action": "Activer le mode Lecture",
+    "keys": ["F9"],
+    "os": ["Windows", "Linux"],
+    "category": "web",
+    "software": "firefox",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Option", "R"] }]
+  },
 
   // --- SAFARI ---
   {
@@ -235,5 +245,14 @@ export const webShortcuts = [
     "category": "web",
     "software": "safari",
     "difficulty": "Intermediate"
+  },
+  {
+    "id": "web-safari-tab-overview",
+    "action": "Aperçu des onglets",
+    "keys": ["Cmd", "Shift", "\\"],
+    "os": ["macOS"],
+    "category": "web",
+    "software": "safari",
+    "difficulty": "Advanced"
   }
 ];

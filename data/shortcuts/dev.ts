@@ -383,6 +383,25 @@ export const devShortcuts = [
     "difficulty": "Advanced",
     "alternatives": [{ "os": "macOS", "keys": ["Ctrl", "T"] }]
   },
+  {
+    "id": "dev-as-run",
+    "action": "Run App",
+    "keys": ["Shift", "F10"],
+    "os": ["Windows", "Linux", "macOS"],
+    "category": "dev",
+    "software": "android-studio",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Ctrl", "R"] }]
+  },
+  {
+    "id": "dev-as-sync",
+    "action": "Sync Project with Gradle Files",
+    "keys": ["Ctrl", "Shift", "O"],
+    "os": ["Windows", "Linux", "macOS"],
+    "category": "dev",
+    "software": "android-studio",
+    "difficulty": "Intermediate"
+  },
 
   // --- GIT UI (GitHub Desktop / SourceTree) ---
   {
@@ -396,6 +415,36 @@ export const devShortcuts = [
     "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Enter"] }]
   },
   {
+    "id": "git-gh-push",
+    "action": "Push to Origin",
+    "keys": ["Ctrl", "P"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "github-desktop",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "P"] }]
+  },
+  {
+    "id": "git-gh-pull",
+    "action": "Pull from Origin",
+    "keys": ["Ctrl", "Shift", "P"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "github-desktop",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "P"] }]
+  },
+  {
+    "id": "git-st-commit",
+    "action": "Commit",
+    "keys": ["Ctrl", "Shift", "C"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "sourcetree",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "C"] }]
+  },
+  {
     "id": "git-st-fetch",
     "action": "Fetch",
     "keys": ["Ctrl", "Shift", "F"],
@@ -404,6 +453,16 @@ export const devShortcuts = [
     "software": "sourcetree",
     "difficulty": "Intermediate",
     "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "F"] }]
+  },
+  {
+    "id": "git-st-pull",
+    "action": "Pull",
+    "keys": ["Ctrl", "Shift", "P"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "sourcetree",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "P"] }]
   },
 
   // --- MODERN TERMINALS (iTerm2 / Windows Terminal) ---
@@ -417,6 +476,15 @@ export const devShortcuts = [
     "difficulty": "Intermediate"
   },
   {
+    "id": "term-iterm-split-h",
+    "action": "Split Horizontal",
+    "keys": ["Cmd", "Shift", "D"],
+    "os": ["macOS"],
+    "category": "dev",
+    "software": "iterm2",
+    "difficulty": "Intermediate"
+  },
+  {
     "id": "term-wt-palette",
     "action": "Command Palette",
     "keys": ["Ctrl", "Shift", "P"],
@@ -424,5 +492,23 @@ export const devShortcuts = [
     "category": "dev",
     "software": "windows-terminal",
     "difficulty": "Beginner"
+  },
+  {
+    "id": "term-wt-new-tab",
+    "action": "New Tab",
+    "keys": ["Ctrl", "Shift", "T"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "windows-terminal",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": "term-wt-split",
+    "action": "Split Pane Auto",
+    "keys": ["Alt", "Shift", "D"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "windows-terminal",
+    "difficulty": "Intermediate"
   }
 ];
