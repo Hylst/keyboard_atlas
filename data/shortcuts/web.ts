@@ -193,5 +193,47 @@ export const webShortcuts = [
     "software": "chrome",
     "difficulty": "Advanced",
     "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Option", "I"] }]
+  },
+
+  // --- FIREFOX ---
+  {
+    "id": "web-ff-private",
+    "action": "Fenêtre de navigation privée",
+    "keys": ["Ctrl", "Shift", "P"],
+    "os": ["Windows", "Linux"],
+    "category": "web",
+    "software": "firefox",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "P"] }]
+  },
+  {
+    "id": "web-ff-history-sidebar",
+    "action": "Panneau latéral Historique",
+    "keys": ["Ctrl", "H"],
+    "os": ["Windows", "Linux"],
+    "category": "web",
+    "software": "firefox",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "H"] }]
+  },
+
+  // --- SAFARI ---
+  {
+    "id": "web-safari-sidebar",
+    "action": "Afficher/Masquer barre latérale",
+    "keys": ["Cmd", "Shift", "L"],
+    "os": ["macOS"],
+    "category": "web",
+    "software": "safari",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": "web-safari-reader",
+    "action": "Mode Lecteur",
+    "keys": ["Cmd", "Shift", "R"],
+    "os": ["macOS"],
+    "category": "web",
+    "software": "safari",
+    "difficulty": "Intermediate"
   }
 ];

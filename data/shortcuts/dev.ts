@@ -361,5 +361,68 @@ export const devShortcuts = [
     "difficulty": "Advanced",
     "description": "Ajoute # au début et valide. Garde la commande en historique sans l'exécuter.",
     "alternatives": [{ "os": "macOS", "keys": ["Esc", "#"] }]
+  },
+
+  // --- JETBRAINS (WebStorm / Android Studio) ---
+  {
+    "id": "dev-jb-search-all",
+    "action": "Search Everywhere",
+    "keys": ["Shift", "Shift"],
+    "os": ["Windows", "Linux", "macOS"],
+    "category": "dev",
+    "software": "webstorm",
+    "difficulty": "Beginner"
+  },
+  {
+    "id": "dev-jb-refactor",
+    "action": "Refactor This",
+    "keys": ["Ctrl", "Alt", "Shift", "T"],
+    "os": ["Windows", "Linux", "macOS"],
+    "category": "dev",
+    "software": "webstorm",
+    "difficulty": "Advanced",
+    "alternatives": [{ "os": "macOS", "keys": ["Ctrl", "T"] }]
+  },
+
+  // --- GIT UI (GitHub Desktop / SourceTree) ---
+  {
+    "id": "git-gh-commit",
+    "action": "Commit Changes",
+    "keys": ["Ctrl", "Enter"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "github-desktop",
+    "difficulty": "Beginner",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Enter"] }]
+  },
+  {
+    "id": "git-st-fetch",
+    "action": "Fetch",
+    "keys": ["Ctrl", "Shift", "F"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "sourcetree",
+    "difficulty": "Intermediate",
+    "alternatives": [{ "os": "macOS", "keys": ["Cmd", "Shift", "F"] }]
+  },
+
+  // --- MODERN TERMINALS (iTerm2 / Windows Terminal) ---
+  {
+    "id": "term-iterm-split-v",
+    "action": "Split Vertical",
+    "keys": ["Cmd", "D"],
+    "os": ["macOS"],
+    "category": "dev",
+    "software": "iterm2",
+    "difficulty": "Intermediate"
+  },
+  {
+    "id": "term-wt-palette",
+    "action": "Command Palette",
+    "keys": ["Ctrl", "Shift", "P"],
+    "os": ["Windows"],
+    "category": "dev",
+    "software": "windows-terminal",
+    "difficulty": "Beginner"
   }
 ];

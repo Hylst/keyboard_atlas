@@ -5,12 +5,20 @@ export const SOFTWARES: Software[] = [
   // Dev
   { id: 'vscode', name: 'VS Code', icon: '📜', category: 'dev' },
   { id: 'intellij', name: 'IntelliJ IDEA', icon: '🧠', category: 'dev' },
+  { id: 'webstorm', name: 'WebStorm', icon: '🌐', category: 'dev' },
+  { id: 'android-studio', name: 'Android Studio', icon: '🤖', category: 'dev' },
   { id: 'terminal', name: 'Terminal / Shell', icon: '⌨️', category: 'dev' },
-  { id: 'git', name: 'Git', icon: '🌳', category: 'dev' },
+  { id: 'iterm2', name: 'iTerm2', icon: '🐚', category: 'dev' },
+  { id: 'windows-terminal', name: 'Windows Terminal', icon: '💻', category: 'dev' },
+  { id: 'git', name: 'Git CLI', icon: '🌳', category: 'dev' },
+  { id: 'github-desktop', name: 'GitHub Desktop', icon: '🐙', category: 'dev' },
+  { id: 'sourcetree', name: 'SourceTree', icon: '🌲', category: 'dev' },
   { id: 'docker', name: 'Docker', icon: '🐳', category: 'dev' },
   
   // Web
   { id: 'chrome', name: 'Chrome/Edge', icon: '🌍', category: 'web' },
+  { id: 'firefox', name: 'Firefox', icon: '🦊', category: 'web' },
+  { id: 'safari', name: 'Safari', icon: '🧭', category: 'web' },
   
   // Productivity (New)
   { id: 'notion', name: 'Notion', icon: '📓', category: 'productivity' },

@@ -26,5 +26,13 @@ export const LEARNING_PATHS: LearningPath[] = [
     icon: '🖥️',
     shortcutIds: ['sys-snap-left', 'sys-show-desktop', 'nav-desktop-view', 'sys-spotlight'],
     level: 'Débutant'
+  },
+  {
+    id: 'terminal-ninja',
+    title: 'Ninja du Terminal',
+    description: 'Devenez ultra-rapide en ligne de commande avec la navigation et l\'historique.',
+    icon: '⌨️',
+    shortcutIds: ['term-reverse-search', 'term-start-line', 'term-end-line', 'term-clear', 'term-cancel', 'term-last-arg', 'term-cut-line'],
+    level: 'Avancé'
   }
 ];
