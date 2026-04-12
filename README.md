@@ -5,8 +5,9 @@
 
 Elle gamifie l'apprentissage grâce à un système de répétition espacée (SRS) et un mode Arcade, rendant la productivité addictive.
 
-![Version](https://img.shields.io/badge/version-1.0.0-indigo.svg)
+![Version](https://img.shields.io/badge/version-1.37.0-indigo.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/Hylst/keyboard_atlas)
 
 ## 🌟 Fonctionnalités
 

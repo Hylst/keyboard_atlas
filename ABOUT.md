@@ -24,5 +24,6 @@ La plupart des listes de raccourcis sont des tableaux statiques ennuyeux. Keyboa
 *   ✅ **Phase 7 :** Documentation, SEO & Release v1.0.
 *   ✅ **Phase 8 :** Mode Typographie (Typing Speed Game, heatmaps d'erreur).
 *   ✅ **Phase 9 :** Performance (Lazy modales), Accessibilité & Export/Import JSON.
+*   ✅ **Phase 10 :** UX Polish, Onboarding & Nouveautés In-App.
 
-L'application est désormais complète en version 1.0.
+L'application est en évolution continue, actuellement en version 1.37.0.

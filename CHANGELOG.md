@@ -3,6 +3,17 @@
 
 All notable changes to the **Keyboard Atlas** project will be documented here.
 
+## [v1.37.0] - Onboarding & UX Polish
+### 🚀 New Features
+*   **Interactive Onboarding:** Added a guided tour (`Onboarding.tsx`) for new users covering SRS, Quiz, and Arcade usage, persisting in `localStorage`.
+*   **"Nouveautés" Tab:** Added a built-in changelog view directly inside the `InfoModal` for in-app release notes.
+*   **Expanded Data:** Added new software shortcuts for Git (GitHub Desktop, SourceTree), IDEs (WebStorm, Android Studio), OS Terminals, and Browsers.
+
+### ⚖️ UX Improvements
+*   **Sidebar Truncation:** Softwares list is now cleanly truncated to the top 6 with a "Voir tous (+)" button to prevent visual overload.
+*   **Responsive Buttons:** "Marquer comme maîtrisé" dynamically shortens to "Maîtrisé" on mobile breakpoints.
+*   **Stable Build:** Rolled back erratic Tailwind local PostCSS build to a stable CDN configuration to ensure instant visual consistency.
+
 ## [v1.36.0] - Focus Mode & Gamification V3
 ### 🚀 New Features
 *   **Typing Speed Game:** Added a Monkeytype-inspired minigame (`TypingGame.tsx`) with 3 specialized corpus modes (Prose, Code, Alien). High scores are persisted.

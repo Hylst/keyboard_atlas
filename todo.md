@@ -24,13 +24,13 @@
 ## 🐛 Bugs, Incohérences & UX (Analyse Récente)
 
 ### Contenu & Données (Omissions)
-- [ ] **Softwares manquants (`data/softwares.ts`)** : Il manque des outils de dev essentiels comme Git (GitHub Desktop / SourceTree), IDE (WebStorm, Android Studio), Outils système (Explorateur Windows, Finder Mac présent mais seul, terminaux modernes iTerm2/Windows Terminal), et Navigateurs Web (Firefox, Safari).
+- [x] **Softwares manquants (`data/softwares.ts`)** : Il manque des outils de dev essentiels comme Git (GitHub Desktop / SourceTree), IDE (WebStorm, Android Studio), Outils système (Explorateur Windows, Finder Mac présent mais seul, terminaux modernes iTerm2/Windows Terminal), et Navigateurs Web (Firefox, Safari).
 
 ### Expérience Utilisateur (UX)
 - [x] **Empty State Filtres Trompeur** : Lorsqu'un croisement de filtres (Catégorie + Logiciel) ne donne rien, le message affiche "Essayez de cliquer sur le clavier virtuel", ce qui est hors-sujet. -> À remplacer par "Aucun raccourci ne correspond à ces critères" avec bouton "Réinitialiser les filtres".
 - [x] **Déclenchement Quiz de Révision** : Le badge "X cartes nécessitent une révision" dans la barre de *Progression* (Sidebar) n'est **pas cliquable**. Il devrait agir comme un bouton pour lancer une session Quiz isolant ces cartes "Dues" (SRS).
-- [ ] **Surcharge Visuelle Sidebar (Logiciels)** : Actuellement affichés en grille complète. Si on ajoute des logiciels, la liste va saturer la hauteur écran. -> Nécessite un regroupement accordéon ou limiter l'affichage (ex: top 6 avec bouton "Voir tous").
-- [ ] **Bouton Maîtrise Trop Long** : Le terme "MARQUER COMME MAÎTRISÉE" casse parfois le container bouton de la carte (`ShortcutCard.tsx`) sur petit écran. -> Raccourcir à "Maîtrisé" ou gérer le clamp HTML.
+- [x] **Surcharge Visuelle Sidebar (Logiciels)** : Actuellement affichés en grille complète. Si on ajoute des logiciels, la liste va saturer la hauteur écran. -> Nécessite un regroupement accordéon ou limiter l'affichage (ex: top 6 avec bouton "Voir tous").
+- [x] **Bouton Maîtrise Trop Long** : Le terme "MARQUER COMME MAÎTRISÉE" casse parfois le container bouton de la carte (`ShortcutCard.tsx`) sur petit écran. -> Raccourcir à "Maîtrisé" ou gérer le clamp HTML.
 - [ ] **Tooltips Premium Absents** : Les boutons iconographiques (🧘‍♀️, `i`, Export/Import) n'utilisent que de simples bulles natives `title=""`. Manque un vrai composant Tooltip contextuel stylé.
 
 ### Bugs d'Interface Connus
@@ -45,7 +45,7 @@
 
 ## 🎨 Design (Modales & UI)
 - [ ] **InfoModal / LegalModal** : Le `backdrop-blur` complet impacte fortement le rendu GPU, baisser/harmoniser avec `backdrop-blur-sm` transparent (`bg-slate-900/60`).
-- [ ] **Onboarding** : Scène overlay "bienvenue" pour un nouvel utilisateur (détecté via l'absence de clé localStorage dédiée).
+- [x] **Onboarding** : Scène overlay "bienvenue" pour un nouvel utilisateur (détecté via l'absence de clé localStorage dédiée).
 - [ ] **Animations Globales** : Implémenter le hook `animate-fade-in` de façon consistante sur le toggle de filtres ou vues.
 - [ ] **Quiz Résultats** : Les confettis sont pertinents, mais la note de réussite ne roule pas d'anim visuelle sur son compteur (`0% -> 80%`).
 

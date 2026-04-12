@@ -25,6 +25,7 @@ Le projet suit une architecture React modulaire avec une forte séparation des p
 │   ├── LegalModal.tsx      # Mentions légales et CGU
 │   ├── ErgoModal.tsx       # Conseils Ergonomie & Santé
 │   ├── InfoModal.tsx       # À propos & Auteur
+│   ├── Onboarding.tsx      # Guide de bienvenue interactif pour les nouveaux utilisateurs
 │   └── Confetti.tsx        # Effets visuels de victoire
 │
 ├── hooks/                  # Hooks Personnalisés
