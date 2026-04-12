@@ -51,6 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   typingHighScore = { prose: 0, code: 0, alien: 0 },
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <aside className="lg:col-span-1 no-print order-2 lg:order-1">
