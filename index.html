@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://hylst.fr/keyboard_atlas/" />
     
     <!-- SEO Primaire -->
     <title>Keyboard Atlas - Maîtrisez les Raccourcis Clavier</title>
@@ -32,7 +33,8 @@
     <meta property="twitter:image" content="https://hylst.fr/keyboard_atlas/og-image.jpg" />
 
     <link rel="manifest" href="/manifest.json">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind auto-heberge par la plateforme hylst.fr (aucune requete tierce) -->
+    <script src="/assets/vendor/tailwind/tailwind-3.4.17.js" vite-ignore></script>
     <script>
       tailwind.config = {
         darkMode: 'class',
@@ -188,7 +190,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body class="text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-700">
     <div id="root"></div>

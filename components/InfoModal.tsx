@@ -137,7 +137,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ onClose }) => {
                 </h3>
                 <div className="space-y-2">
                   {[
-                    { icon: '✉️', label: 'E-mail', value: 'geoffroystreit@gmail.com', href: 'mailto:geoffroystreit@gmail.com' },
+                    { icon: '✉️', label: 'E-mail', value: 'geoffroy.streit@ik.me', href: 'mailto:geoffroy.streit@ik.me' },
                     { icon: '💻', label: 'Code source', value: 'github.com/Hylst/keyboard-atlas', href: 'https://github.com/Hylst/keyboard-atlas' },
                     { icon: '🌐', label: 'Site web', value: 'hylst.fr', href: 'https://hylst.fr' },
                   ].map(link => (

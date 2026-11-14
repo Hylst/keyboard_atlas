@@ -54,18 +54,23 @@ const LegalModal: React.FC<LegalModalProps> = ({ onClose }) => {
                 <p>Le site <strong>Keyboard Atlas</strong> est édité par :</p>
                 <ul className="list-disc ml-4 mt-2">
                   <li><strong>Nom :</strong> Geoffroy Streit (Hylst)</li>
-                  <li><strong>Contact :</strong> geoffroy.streit@gmail.com</li>
-                  <li><strong>Statut :</strong> Projet Personnel Open Source / Portefolio</li>
-                  <li><strong>Adresse :</strong> [Adresse postale à renseigner si activité pro]</li>
+                  <li><strong>Contact :</strong> geoffroy.streit@ik.me</li>
+                  <li><strong>Statut :</strong> site personnel édité à titre non professionnel, publié sur la plateforme hylst.fr</li>
+                  <li><strong>Conception :</strong> application créée par Geoffroy Streit avec l'assistance d'une IA</li>
                 </ul>
               </section>
               <section>
                 <h3 className="text-lg font-black text-slate-800 mb-2">2. Hébergement</h3>
                 <p>Le site est hébergé par :</p>
                 <ul className="list-disc ml-4 mt-2">
-                  <li><strong>Hébergeur :</strong> [Vercel / Netlify / GitHub Pages - À adapter]</li>
-                  <li><strong>Adresse :</strong> [Adresse de l'hébergeur]</li>
+                  <li><strong>Hébergeur :</strong> Hostinger International Limited</li>
+                  <li><strong>Adresse :</strong> 61 Lordou Vironos Street, 6023 Larnaca, Chypre</li>
+                  <li><strong>Serveur :</strong> serveur privé virtuel situé au Royaume-Uni</li>
                 </ul>
+                <p className="mt-2">
+                  Mentions légales et politique de confidentialité complètes de la plateforme :{' '}
+                  <a href="https://hylst.fr/mentions-legales.html" target="_blank" rel="noopener" className="text-indigo-600 font-bold hover:underline">hylst.fr/mentions-legales.html</a>.
+                </p>
               </section>
               <section>
                 <h3 className="text-lg font-black text-slate-800 mb-2">3. Propriété Intellectuelle</h3>
@@ -78,13 +83,14 @@ const LegalModal: React.FC<LegalModalProps> = ({ onClose }) => {
             <div className="space-y-6">
               <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-xl mb-6">
                 <h4 className="font-bold text-emerald-800 mb-1">Résumé RGPD</h4>
-                <p className="text-emerald-700 text-xs">Nous ne collectons aucune donnée personnelle sur nos serveurs. Tout est stocké localement sur votre machine.</p>
+                <p className="text-emerald-700 text-xs">L'application ne collecte aucune donnée personnelle : tout est stocké localement sur votre machine. Seuls les journaux techniques du serveur web sont conservés, douze mois au plus.</p>
               </div>
 
               <section>
                 <h3 className="text-lg font-black text-slate-800 mb-2">1. Collecte des données</h3>
                 <p><strong>Keyboard Atlas</strong> respecte votre vie privée. L'application fonctionne selon le principe du "Local-First".</p>
-                <p className="mt-2">Aucune donnée personnelle (nom, email, adresse IP) n'est envoyée vers un serveur distant. Nous n'utilisons pas de base de données backend.</p>
+                <p className="mt-2">L'application n'envoie aucune donnée personnelle à un serveur et n'utilise pas de base de données. Comme tout serveur web, celui de la plateforme hylst.fr enregistre des journaux techniques (adresse IP, date, page demandée, navigateur) pour la sécurité, sur la base de l'intérêt légitime de l'éditeur (RGPD, article 6.1.f). Ils sont conservés douze mois au plus.</p>
+                <p className="mt-2">Si vous écrivez à l'adresse de contact, votre message reste dans la messagerie de l'éditeur, fournie par Infomaniak Network SA en Suisse (pays couvert par une décision d'adéquation de la Commission européenne), et sert uniquement à vous répondre.</p>
               </section>
 
               <section>

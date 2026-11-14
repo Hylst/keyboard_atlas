@@ -470,7 +470,7 @@ const App: React.FC = () => {
       <footer className="bg-white border-t border-slate-200 py-12 mt-20 no-print text-center">
         <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.5em] mb-2">Keyboard Atlas — Refactored Edition</p>
         <p className="text-slate-300 text-[9px] font-medium mb-4">
-           Application créée par <span className="text-slate-500 font-bold">Geoffroy Streit (Hylst)</span> avec l'assistance d'une IA • geoffroy.streit@gmail.com
+           Application créée par <span className="text-slate-500 font-bold">Geoffroy Streit (Hylst)</span> avec l'assistance d'une IA • geoffroy.streit@ik.me
         </p>
         
         {/* Liens légaux */}

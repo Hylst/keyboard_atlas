@@ -3,6 +3,12 @@
 
 All notable changes to the **Keyboard Atlas** project will be documented here.
 
+## [v1.37.1] - 2026-11-14 : Legal notice and contact
+*   **Legal notice:** the placeholders are filled in: non-professional publisher, host Hostinger International Limited (Larnaca, Cyprus; server in the United Kingdom), AI assistance, and a link to the legal notice of the hylst.fr platform.
+*   **Privacy:** the policy no longer claims that no IP address reaches a server: the web server keeps technical logs for twelve months at most. The mailbox provider is named (Infomaniak, Switzerland).
+*   **Contact:** address changed to `geoffroy.streit@ik.me` (footer, info and legal windows, ABOUT).
+*   **index.html:** fixes previously applied by hand to the published build on hylst.fr are now in the source: canonical URL, Tailwind self-hosted by the platform (`/assets/vendor/tailwind/tailwind-3.4.17.js`), and the dead `/index.css` link removed.
+
 ## [v1.37.0] - Onboarding & UX Polish
 ### 🚀 New Features
 *   **Interactive Onboarding:** Added a guided tour (`Onboarding.tsx`) for new users covering SRS, Quiz, and Arcade usage, persisting in `localStorage`.

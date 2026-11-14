@@ -12,7 +12,7 @@ La plupart des listes de raccourcis sont des tableaux statiques ennuyeux. Keyboa
 3.  **Rappel Actif :** Le mode Quiz intégré force le cerveau à retrouver l'information sans indices, renforçant les connexions neuronales.
 
 ## Crédits
-**Concept & Développement :** Geoffroy Streit alias Hylst (geoffroy.streit@gmail.com).
+**Concept & Développement :** Geoffroy Streit alias Hylst (geoffroy.streit@ik.me).
 
 ## Statut de la Roadmap
 *   ✅ **Phase 1 :** Moteur Core & Recherche.
@@ -26,4 +26,4 @@ La plupart des listes de raccourcis sont des tableaux statiques ennuyeux. Keyboa
 *   ✅ **Phase 9 :** Performance (Lazy modales), Accessibilité & Export/Import JSON.
 *   ✅ **Phase 10 :** UX Polish, Onboarding & Nouveautés In-App.
 
-L'application est en évolution continue, actuellement en version 1.37.0.
+L'application est en évolution continue, actuellement en version 1.37.1.
