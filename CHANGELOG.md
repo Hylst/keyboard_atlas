@@ -4,6 +4,7 @@
 All notable changes to the **Keyboard Atlas** project will be documented here.
 
 ## [Unreleased]
+*   **License:** `LICENSE` file added (MIT), as the README badge already stated.
 *   **Source folder:** moved to `D:\0CODE\0FINAL\it\keyboard_atlas` (17/11/2026, platform reorganisation). No reference to the old path in the repository; the build is unchanged (identical to the published one).
 
 ## [v1.37.1] - 2026-11-14 : Legal notice and contact

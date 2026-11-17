@@ -62,3 +62,7 @@ L'application est configurée pour fonctionner comme un point de terminaison sta
 
 ## Crédits
 Concept & Développement par **Geoffroy Streit (Hylst)**.
+
+## Licence
+
+MIT : voir [LICENSE](LICENSE). Copyright (c) 2026 Geoffroy Streit (Hylst).
