@@ -3,6 +3,9 @@
 
 All notable changes to the **Keyboard Atlas** project will be documented here.
 
+## [Unreleased]
+*   **Source folder:** moved to `D:\0CODE\0FINAL\it\keyboard_atlas` (17/11/2026, platform reorganisation). No reference to the old path in the repository; the build is unchanged (identical to the published one).
+
 ## [v1.37.1] - 2026-11-14 : Legal notice and contact
 *   **Legal notice:** the placeholders are filled in: non-professional publisher, host Hostinger International Limited (Larnaca, Cyprus; server in the United Kingdom), AI assistance, and a link to the legal notice of the hylst.fr platform.
 *   **Privacy:** the policy no longer claims that no IP address reaches a server: the web server keeps technical logs for twelve months at most. The mailbox provider is named (Infomaniak, Switzerland).
