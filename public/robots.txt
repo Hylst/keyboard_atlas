@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hylst.fr/keyboard_atlas/sitemap.xml
+Sitemap: %SITE_URL%/keyboard_atlas/sitemap.xml
