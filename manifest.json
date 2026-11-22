@@ -1,15 +1,16 @@
-
 {
   "short_name": "Keyboard Atlas",
   "name": "Keyboard Atlas - Master Shortcuts",
   "icons": [
     {
-      "src": "favicon.png",
-      "sizes": "192x192 512x512",
-      "type": "image/png"
+      "src": "/keyboard_atlas/favicon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+  "start_url": "/keyboard_atlas/",
+  "scope": "/keyboard_atlas/",
   "display": "standalone",
   "theme_color": "#4f46e5",
   "background_color": "#f8fafc"
