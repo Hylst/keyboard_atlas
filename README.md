@@ -6,7 +6,7 @@
 Elle gamifie l'apprentissage grâce à un système de répétition espacée (SRS) et un mode Arcade, rendant la productivité addictive.
 
 ![Version](https://img.shields.io/badge/version-1.37.1-indigo.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![License](https://img.shields.io/badge/license-AGPL--3.0--or--later-green.svg)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/Hylst/keyboard_atlas)
 
 ## 🌟 Fonctionnalités
@@ -65,4 +65,4 @@ Concept & Développement par **Geoffroy Streit (Hylst)**.
 
 ## Licence
 
-MIT : voir [LICENSE](LICENSE). Copyright (c) 2026 Geoffroy Streit (Hylst).
+AGPL-3.0-or-later : voir [LICENSE](LICENSE). Copyright (c) 2026 Geoffroy Streit (Hylst).
