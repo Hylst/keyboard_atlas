@@ -74,7 +74,7 @@ const LegalModal: React.FC<LegalModalProps> = ({ onClose }) => {
               </section>
               <section>
                 <h3 className="text-lg font-black text-slate-800 mb-2">3. Propriété Intellectuelle</h3>
-                <p>L'ensemble du code source de ce projet est sous licence MIT. Le contenu (structure des données, textes, design) est la propriété exclusive de l'éditeur, sauf mention contraire.</p>
+                <p>L'ensemble du code source de ce projet est sous licence AGPL-3.0-or-later. Le contenu (structure des données, textes, design) est la propriété exclusive de l'éditeur, sauf mention contraire.</p>
               </section>
             </div>
           )}
